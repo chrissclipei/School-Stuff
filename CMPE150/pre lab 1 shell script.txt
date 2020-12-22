@@ -1,0 +1,7 @@
+#!/bin/bash
+for f in *
+do
+        if [[ "$f" != *.sh ]]; then
+                awk '{if(NR%2==0) print FILENAME ": " $1, $2}' "$f"
+        fi
+done
