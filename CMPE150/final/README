@@ -1,0 +1,14 @@
+Chris Sclipei
+csclipei
+#1452216
+CMPE150
+3/11/19
+
+README
+
+This submission includes:
+- final_skel.py
+- finalcontroller_skel.py
+- README.txt
+
+This README lists the files that are to be submitted, consisting of two python files. One in which I created a topology comprising of 6 hosts: h1, h2, h3, untrusted, trusted, and server, and 5 switches (with 4 being the core switch). Each switch were coupled with 2 ports, except for the core switch with has 6 ports to account for all the hosts. These ports were then used to send packets between hosts through switch ports, which depended on the destination IP address. These rules were installed in the controller, which acted as a firewall simliar to what we did in lab 3. In this assignment, we were told to FLOOD all non-IP traffic, which is ARP and located in the Data Link layer. Our next task was to block/drop any ICMP traffic between the untrusted host and the other hosts, except for the trusted, which was able to communicate with the untrusted host. Our last task was to allow TCP traffic between the untrusted host and all other hosts except for the server. ICMP and TCP traffic was sent to the respective hosts and switches through port numbers, based on what the destination IP of the packet was. All other packets were dropped and this was verified by using the dump flow command, which would produce the actions we installed based on the traffic. 
