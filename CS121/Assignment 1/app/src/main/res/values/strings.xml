@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">About Me</string>
+    <string name="paragraph">"Hello, my name is Chris Sclipei and I am a 4th year at UCSC majoring in computer science. I'm from San Diego and have been attending Santa Cruz since my freshman year. Some hobbies of mine include: gaming, playing sports, and working out. You can click on the buttons below to learn more."</string>
+    <string name="gaming">"I typically enjoy spending my time playing video games. I've been playing video games since I was young and have always enjoyed playing with friends. My preferred gaming system is PC since there is a wider variety and the majority of my friends also play PC games. My favorite and most consistent game I play is League of Legends.</string>
+    <string name="sports">"I grew up playing sports and always enjoy playing them. I am currently playing IM volleyball and soccer and find them to be an excellent form of exercise and stress relief. Currently, my favorite sport to play is volleyball. It's fairly fast-paced and you're almost always involved in every play. Also, being tall has it's perks.</string>
+    <string name="gym">"When I'm not gaming nor playing sports I'll most likely be at the gym. I like to believe that I take the gym very seriously and push myself pretty hard. I enjoy going to the gym because you're pretty much free to do whatever you want, however you want. And mostly, because working out me feel good about myself and I'm motivated by my results.</string>
+</resources>

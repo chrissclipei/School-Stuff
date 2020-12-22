@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_orange_light"
+    android:orientation="vertical"
+    tools:context=".SportsActivity">
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="26sp"
+        android:layout_marginTop="15px"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:text="Sports" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:layout_margin="10px"
+        android:textSize="14sp"
+        android:text="@string/sports" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="241dp"
+        app:srcCompat="@drawable/haikyuu" />
+
+    <Button
+        android:id="@+id/back2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20px"
+        android:onClick="goBack"
+        android:text="Back" />
+
+    <Button
+        android:id="@+id/delete2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15px"
+        android:onClick="delete"
+        android:text="Delete" />
+</android.widget.LinearLayout>

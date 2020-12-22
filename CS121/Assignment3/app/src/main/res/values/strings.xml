@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">DidItMove</string>
+    <string name="quiet">Everything was quiet</string>
+    <string name="moved">The phone moved!</string>
+</resources>
