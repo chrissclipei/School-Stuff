@@ -1,0 +1,36 @@
+;;
+;; Chris Sclipei        CruzID: Csclipei        Email: Csclipei@ucsc.edu
+;; Kaho Tran            CruzID: Kahtran         Email: Kahtran@ucsc.edu
+;;
+;;=====================================================================
+;;
+;; Programming Assignment 4 - pmake - Perl and Rapid Devlopment
+;;                                    A subset of gmake
+;;
+;; Professor: Wesley Mackey
+;; Class: CMPS112
+;; Date due: March 4, 2019
+;; Files submitted for Programming Assignment 4:
+;;     -README
+;;     -PARTNER
+;;     -pmake
+;;
+;; Please grade the submission from Chris Sclipei (Csclipei@ucsc.edu)
+;; DO NOT grade the submission from Kaho Tran (kahtran@ucsc.edu)
+;;
+;; This program was completed using pair programming.
+;; Partner: Chris Sclipei (Csclipei@ucsc.edu)
+;; Partner: Kaho  Tran (Kahtran@ucsc.edu)
+;;
+;; We acknowledge that each partner in a programming pair is
+;; responsible for the work performed by the other partner,
+;; and has been reviewed by both partners working together.
+;;
+;; Chris Sclipei spent _0__ hours working alone.
+;; Kaho Tran spent _0__ hours working alone.
+;; We spent _37__ hours working together.
+;; Chris Sclipei spent _19__ hours driving.
+;; Kaho Tran spent _18__ hours driving.
+;;
+;; $Id: README,v 1.4 2019-03-04 09:08:15-08 - - $
+;;

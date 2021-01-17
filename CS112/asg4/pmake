@@ -1,0 +1,253 @@
+#!/usr/bin/perl
+#Chris Sclipei csclipei 1452216
+#Kaho Tran kahtran 1460825
+
+use strict;
+use warnings;
+use Getopt::Std;
+use Data::Dumper;
+
+my $filename = "Makefile";
+my $target;
+my @targets = ();
+my @inputs = ();
+my @cmd = ();
+my %commands = ();
+my %targetStatus = ();
+my %opts;
+my %macros = ();
+my %hashdep = ();
+
+getopts ("d", \%opts);
+if ($opts{'d'}){
+   print "Debugging\n";
+}
+
+sub parse_dep ($) {
+   my ($line) = @_;
+   return undef unless $line =~ m/^(\S+)\s*:\s*(.*?)\s*$/;
+   my ($temptarget, $dependency) = ($1, $2);
+   my @dependencies = split m/\s+/, $dependency;
+   return $temptarget, \@dependencies;
+}
+
+open my $file, "<$filename" or warn "$0: $filename: $!\n";
+while (my $row = <$file>) {
+   my $macroIndex = index($row, '=');
+   chomp $row;
+   while ($row =~ /\${[^}]+}/){
+      my $openBrace = index($row, '${');
+      my $closeBrace = index($row, '}');
+      my $macroKey = substr($row, $openBrace+2, 
+                     $closeBrace-$openBrace-2);
+      my $macroValue = getMacroValue($macroKey);
+      substr($row, $openBrace, $closeBrace+1-$openBrace) = $macroValue;
+   }
+   my $offset = 0;
+   my $dollarIndex = index($row, '$', $offset);
+   while ($dollarIndex != -1) {
+         my $macroKey = substr($row, $dollarIndex, 2);
+         my $macroVal = getMacroValue($macroKey);
+         substr($row, $dollarIndex, 2) = $macroVal;
+         $offset = $dollarIndex + 1;
+         $dollarIndex = index($row, '$', $offset);
+   }
+   if ($row !~ /^\s*$/){
+      if ($row !~ /#.*?/){
+         if ($macroIndex != -1 && $row !~ /\t/){
+             my @keyVal = split(/=/, $row);              
+             $keyVal[0] =~ s/^\s+|\s+$//g; 
+             $keyVal[1] =~ s/^\s+|\s+$//g;
+             $macros{$keyVal[0]} = $keyVal[1];
+         }
+         elsif ($row !~ /\t/){
+            $row =~ s/^\s+|\s+$//g;
+            push @inputs, $row;
+            my ($temptarget, $deps) = parse_dep $row;
+            print "$0: syntax error: $row\n" and next 
+            unless defined $temptarget;
+            $hashdep{$temptarget} = $deps;
+            $row =~ /(.*):(.*)/;
+            $target = $1;
+            $target =~ s/^\s+|\s+$//g;
+            push @targets, $target;
+            $targetStatus{$target} = 0;
+         }
+         elsif ($row =~ /\t/){
+            $row =~ s/^\s+|\s+$//g;
+            my $command = $row;
+            push @cmd, $row;
+            push @{$commands{$target}}, $command;
+         }
+      }
+   }
+}
+
+#my %hashdep;
+#for my $input (@inputs) {
+#   my ($temptarget, $deps) = parse_dep $input;
+#   print "$0: syntax error: $input\n" and next 
+#   unless defined $temptarget;
+#   $hashdep{$temptarget} = $deps;
+#}
+
+#print Dumper(\%hashdep);
+#print Dumper(\%commands);
+#print Dumper(\@targets);
+
+
+if (exists $ARGV[0]){
+   foreach my $i (0 .. $#targets){
+      if ($ARGV[0] eq $targets[$i]){
+         make($targets[$i]);
+      }
+   }
+} else {
+   make($targets[0]);
+}
+
+sub handlecommands {
+   my $target = shift;
+   foreach my $command (@{$commands{$target}}){
+      my $noExit = index($command, '-');
+      if($command !~ /@|^-/){
+        print("$command\n");
+      }
+      if($command =~ /^@\s*(.*)/){
+         $command = $1;
+      }
+      if($command =~ /^-\s*(.*)/){
+         $command = $1;
+         print "$command\n";
+      } 
+      system($command);
+      my $term_signal = $? & 0x7F;
+      my $core_dumped = $? & 0x80;
+      my $exit_status = ($? >> 8) & 0xFF; 
+      if ($term_signal != 0) {
+        print "termination signal $term_signal: 
+        %strsignal[$term_signal]";
+        exit 1;
+      }
+   }
+   $targetStatus{$target} = 1;
+   return;
+}
+
+sub getMacroValue {
+   my $macroKey = shift;
+   my $prevTarget = shift;
+   if (defined ($macros{$macroKey})){
+       return $macros{$macroKey};
+   } elsif ($macroKey eq '$$'){
+       return '$';
+   } elsif ($macroKey eq '$<'){
+       #print Dumper(\%hashdep);
+       #print "this is my $target\n";
+       my @preRequisites = split(/ /,$hashdep{$target});
+       #print Dumper(\@preRequisites);
+       return $preRequisites[0];
+   }
+}
+
+sub isTarget{
+   my $inQuestion = shift;
+   for my $tValue (@targets) {
+     if ($tValue eq $inQuestion) {
+       return 1;
+     }
+   }
+   return 0;
+}
+
+sub isFile{
+   my $inQuestion = shift;
+   return 1 if (-e $inQuestion);
+   return 0;
+}
+
+sub make {
+   my $target = shift;
+   my $preReqCount = 0;
+   my $preReqCount2 = 0;
+   if (isFile($target)==0){
+      foreach my $preReq (@{$hashdep{$target}}){
+         ++$preReqCount;
+         #print("DUMPER 1 \n");
+         #print Dumper(\@{$hashdep{$target}});
+         #print("my current preReq1 is: $preReq\n");
+         my $size = @{$hashdep{$target}};
+         #print("my current $target is: $preReq\n");
+         #print("preReqCount1 = $preReqCount\n");
+         #print("Size = $size\n");
+         #print("$size\n"); 
+         if (isFile($preReq)) {
+            if($preReqCount == $size){
+               handlecommands($target);
+            } 
+         }
+         elsif (isTarget($preReq)) {
+            make($preReq);
+         } else {}
+      } 
+      if ($targetStatus{$target}==0) {
+         handlecommands($target);
+      }
+   } else {
+      #print("preReqCount2 = $preReqCount\n");
+      foreach my $preReq (@{$hashdep{$target}}){
+         ++$preReqCount2;
+         #++$preReqCount2;
+         #print("DUMPER 2\n");
+         #print Dumper(\@{$hashdep{$target}});
+         my $size2 = @{$hashdep{$target}};
+         #print("MY SIZE2 ===== $size2\n");
+         #print("preReqCount2 = $preReqCount2\n");
+         #print("my currenti222 $target is: $preReq\n");
+         if (isTarget($preReq)) {
+            if (isFile($preReq)){
+               if ($preReqCount2 == $size2){
+                  handlecommands($target);
+               }
+            } else {
+               make($preReq);
+            }
+         } else {
+            if ($preReqCount2 == $size2){
+               handlecommands($target);
+            }
+         }
+      }
+   }
+}
+my %strsignal = (
+    1 => "Hangup",
+    2 => "Interrupt",
+    3 => "Quit",
+    4 => "Illegal instruction",
+    5 => "Trace/breakpoint trap",
+    6 => "Aborted",
+    7 => "Bus error",
+    8 => "Floating point exception",
+    9 => "Killed",
+   11 => "Segmentation fault",
+   13 => "Broken pipe",
+   14 => "Alarm clock",
+   15 => "Terminated",
+   16 => "Stack fault",
+   17 => "Child exited",
+   18 => "Continued",
+   19 => "Stopped (signal)",
+   20 => "Stopped",
+   21 => "Stopped (tty input)",
+   22 => "Stopped (tty output)",
+   24 => "CPU time limit exceeded",
+   25 => "File size limit exceeded",
+   26 => "Virtual timer expired",
+   27 => "Profiling timer expired",
+   28 => "Window changed",
+   29 => "I/O possible",
+   30 => "Power failure",
+   31 => "Bad system call",
+);
+#print Dumper(\%macros);

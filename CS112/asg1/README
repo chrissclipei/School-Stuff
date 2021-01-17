@@ -1,0 +1,34 @@
+;;
+;; Chris Sclipei        CruzID: Csclipei        Email: Csclipei@ucsc.edu
+;; Kaho Tran            CruzID: Kahtran         Email: Kahtran@ucsc.edu
+;;
+;;=====================================================================
+;;
+;; Programming Assignment 1 - Silly Basic Interpreter (Scheme)
+;; Professor: Wesley Mackey
+;; Class: CMPS112
+;; Date due: January 22, 2019
+;; Files submitted for lab1:
+;;     -README
+;;     -PARTNER
+;;     -sbi.scm
+;;
+;; Please grade the submission from Chris Sclipei (Csclipei@ucsc.edu)
+;; DO NOT grade the submission from Kaho Tran (kahtran@ucsc.edu)
+;;
+;; This program was completed using pair programming.
+;; Partner: Chris Sclipei (Csclipei@ucsc.edu)
+;; Partner: Kaho  Tran (Kahtran@ucsc.edu)
+;;
+;; We acknowledge that each partner in a programming pair is
+;; responsible for the work performed by the other partner,
+;; and has been reviewed by both partners working together.
+;;
+;; Chris Sclipei spent _3 hours working alone.
+;; Kaho Tran spent _2 hours working alone.
+;; We spent _25 hours working together.
+;; Chris Sclipei spent _13 hours driving.
+;; Kaho Tran spent _12__ hours driving.
+;;
+;; $Id: README,v 1.4 2019-01-03 14:23:15-08 - - $
+;;

@@ -1,0 +1,15 @@
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LANG = "C.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").
+partnercheck: ./PARTNER: format OK:
+username = "kahtran"
+passwd   = "*"
+uid      = "208563"
+gid      = "100"
+gecos    = "Ka Ho Tran"
+home     = "/afs/cats.ucsc.edu/users/a/kahtran"
+shell    = "/bin/bash"

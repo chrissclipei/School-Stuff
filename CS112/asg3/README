@@ -1,0 +1,37 @@
+;;
+;; Chris Sclipei        CruzID: Csclipei        Email: Csclipei@ucsc.edu
+;; Kaho Tran            CruzID: Kahtran         Email: Kahtran@ucsc.edu
+;;
+;;=====================================================================
+;;
+;; Programming Assignment 3 - Compression/Decompression using 
+;;                            Hoffman Tree (Smalltalk)
+;; Professor: Wesley Mackey
+;; Class: CMPS112
+;; Date due: February 19, 2019
+;; Files submitted for Programming Assignment 3:
+;;     -README
+;;     -PARTNER
+;;     -hzip.st
+;;
+;; Notes: We used piazza extensively.
+;;
+;; Please grade the submission from Chris Sclipei (Csclipei@ucsc.edu)
+;; DO NOT grade the submission from Kaho Tran (kahtran@ucsc.edu)
+;;
+;; This program was completed using pair programming.
+;; Partner: Chris Sclipei (Csclipei@ucsc.edu)
+;; Partner: Kaho  Tran (Kahtran@ucsc.edu)
+;;
+;; We acknowledge that each partner in a programming pair is
+;; responsible for the work performed by the other partner,
+;; and has been reviewed by both partners working together.
+;;
+;; Chris Sclipei spent _0__ hours working alone.
+;; Kaho Tran spent _0__ hours working alone.
+;; We spent _44__ hours working together.
+;; Chris Sclipei spent _23__ hours driving.
+;; Kaho Tran spent _21__ hours driving.
+;;
+;; $Id: README,v 1.4 2019-02-04 09:08:15-08 - - $
+;;

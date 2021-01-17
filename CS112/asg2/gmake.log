@@ -1,0 +1,26 @@
+ocamlc -c absyn.mli
+(echo "(* Generated: $(date) *)"; ocamlc -i tables.ml) >tables.mli
+gmake --no-print-directory deps
+(echo "(* Generated: $(date) *)"; ocamlc -i dumper.ml) >dumper.mli
+ocamldep absyn.mli etc.mli etc.ml tables.mli tables.ml dumper.mli dumper.ml interp.mli interp.ml main.ml dumper.mli tables.mli parser.mli parser.ml scanner.ml >>Makefile.deps
+ocamlc -c etc.mli
+ocamlc -c etc.ml
+ocamlc -c parser.mli
+ocamlc -c parser.ml
+ocamlc -c scanner.ml
+ocamlc -c tables.mli
+ocamlc -c tables.ml
+ocamlc -c dumper.mli
+ocamlc -c dumper.ml
+ocamlc -c interp.mli
+ocamlc -c interp.ml
+File "interp.ml", line 30, characters 47-164:
+Warning 8: this pattern-matching is not exhaustive.
+Here is an example of a value that is not matched:
+(Number _|Memref _|Unary (_, _))
+File "interp.ml", line 72, characters 19-142:
+Warning 8: this pattern-matching is not exhaustive.
+Here is an example of a value that is not matched:
+Arrayref (_, _)
+ocamlc -c main.ml
+ocamlc str.cma etc.cmo parser.cmo scanner.cmo tables.cmo dumper.cmo interp.cmo main.cmo -o sbinterp
