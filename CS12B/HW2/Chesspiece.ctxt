@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Chesspiece
+comment1.params=piecetype\ color\ posRow\ posColumn
+comment1.target=Chesspiece(java.lang.String,\ java.lang.String,\ int,\ int)
+comment2.params=board\ row\ col
+comment2.target=boolean\ CheckOneAttack(Chessboard,\ int,\ int)
+comment3.params=board
+comment3.target=Chesspiece\ CheckAllAttacks(Chessboard)
+numComments=4

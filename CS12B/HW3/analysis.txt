@@ -1,0 +1,40 @@
+Valid Valid Invalid 
+Black checkmated
+Invalid 
+White checkmated
+Invalid 
+White checkmated
+Invalid 
+White in check
+Valid Invalid 
+All kings safe
+Valid Valid Invalid 
+All kings safe
+Invalid 
+Black in check
+Invalid 
+Black checkmated
+Valid Invalid 
+White checkmated
+Valid 
+Black checkmated
+Valid 
+White checkmated
+Valid Valid Invalid 
+Black in check
+Invalid 
+White checkmated
+Invalid 
+Black in check
+Valid Invalid 
+All kings safe
+Valid Invalid 
+All kings safe
+Invalid 
+All kings safe
+Invalid 
+Black in check
+Invalid 
+White in check
+Valid Invalid 
+All kings safe

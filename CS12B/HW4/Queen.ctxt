@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Queen()
+comment1.params=row\ col\ color
+comment1.target=Queen(int,\ int,\ boolean)
+comment2.params=startRow\ startCol\ destRow\ destCol\ ignore
+comment2.target=int[]\ getMoves(int,\ int,\ int,\ int,\ boolean)
+comment3.params=ignore
+comment3.target=int[]\ getAllPossibleMoves(boolean)
+comment4.params=piece
+comment4.target=boolean\ isAttacking(ChessPiece)
+numComments=5

@@ -1,0 +1,4 @@
+Finished HW2, I worked with a partner: Emmanuel Huff ehuff
+For some reason when using the makefile and creating an executabe,
+the executable doesn't work, however if you use the command
+java "" the program does work.

@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Pawn()
+comment1.params=row\ col\ color
+comment1.target=Pawn(int,\ int,\ boolean)
+comment2.params=
+comment2.target=int[]\ getAttackRow()
+comment3.params=
+comment3.target=int[]\ getAttackCol()
+comment4.params=startRow\ startCol\ destRow\ destCol
+comment4.target=boolean\ checkStraightMove(int,\ int,\ int,\ int)
+comment5.params=startRow\ startCol\ destRow\ destCol\ ignore
+comment5.target=int[]\ getMoves(int,\ int,\ int,\ int,\ boolean)
+comment6.params=ignore
+comment6.target=int[]\ getAllPossibleMoves(boolean)
+comment7.params=piece
+comment7.target=boolean\ isAttacking(ChessPiece)
+numComments=8

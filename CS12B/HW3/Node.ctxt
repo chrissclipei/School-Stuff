@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Node()
+comment1.params=piece\ row\ col
+comment1.target=Node(char,\ int,\ int)
+comment10.params=piece
+comment10.target=boolean\ identifyColor(char)
+comment2.params=
+comment2.target=ChessPiece\ getChessPiece()
+comment3.params=
+comment3.target=Node\ getNext()
+comment4.params=next
+comment4.target=void\ setNext(Node)
+comment5.params=
+comment5.target=int\ getRow()
+comment6.params=
+comment6.target=int\ getCol()
+comment7.params=newRow
+comment7.target=void\ setRow(int)
+comment8.params=newCol
+comment8.target=void\ setCol(int)
+comment9.params=
+comment9.target=boolean\ getColor()
+numComments=11

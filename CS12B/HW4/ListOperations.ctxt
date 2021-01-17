@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.params=list\ piece
+comment0.target=Node\ insert(Node,\ Node)
+comment1.params=list\ row\ col
+comment1.target=Node\ findChessPiece(Node,\ int,\ int)
+comment2.params=list\ pieceType
+comment2.target=Node\ findChessPiece(Node,\ char)
+comment3.params=one\ other
+comment3.target=boolean\ isDifferent(Node,\ Node)
+comment4.params=list\ pieceToCapture
+comment4.target=Node\ deleteNode(Node,\ Node)
+comment5.params=head
+comment5.target=Node\ listCopy(Node)
+comment6.params=head\ pieceType
+comment6.target=int\ countPiecesOfType(Node,\ char)
+comment7.params=head\ row\ col
+comment7.target=int\ countPiecesInLocation(Node,\ int,\ int)
+comment8.params=head
+comment8.target=boolean\ twoPiecesOccupySamePosition(Node)
+comment9.params=head
+comment9.target=boolean\ checkValidity(Node)
+numComments=10

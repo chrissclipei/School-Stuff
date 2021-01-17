@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Bishop()
+comment1.params=row\ col\ color
+comment1.target=Bishop(int,\ int,\ boolean)
+comment2.params=board\ row\ col
+comment2.target=boolean\ isAttacking(ChessBoard,\ int,\ int)
+numComments=3

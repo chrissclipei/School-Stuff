@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Pawn()
+comment1.params=row\ col\ color
+comment1.target=Pawn(int,\ int,\ boolean)
+comment2.params=board\ row\ col
+comment2.target=boolean\ isAttacking(ChessBoard,\ int,\ int)
+comment3.params=board\ row\ col
+comment3.target=boolean\ canMove(ChessBoard,\ int,\ int)
+numComments=4

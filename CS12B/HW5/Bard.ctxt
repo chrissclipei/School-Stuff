@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.params=
+comment0.target=void\ readShakespeareText()
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment1.text=\r\n\ \ \ \ public\ static\ String[]\ readFromInputFile()\ {\r\n\ \ \ \ String[]\ inquire\ \=\ null;\r\n\r\n\ \ \ \ try\ {\r\n\ \ \ \ BufferedReader\ reader1\ \=\ new\ BufferedReader(new\ FileReader("input.txt"));\r\n\ \ \ \ String\ line;\r\n\ \ \ \ if\ ((line\ \=\ reader1.readLine())\ instanceof\ String)\ {\r\n\ \ \ \ String[]\ args\ \=\ line.split("\ ");\r\n\ \ \ \ inquire\ \=\ new\ String[1];\r\n\ \ \ \ inquire[0]\ \=\ args[0];\r\n\ \ \ \ }\r\n\ \ \ \ else\ {\r\n\ \ \ \ String[]\ args\ \=\ line.split("\ ");\r\n\ \ \ \ inquire\ \=\ new\ String[2];\r\n\ \ \ \ inquire[0]\ \=\ args[0];\r\n\ \ \ \ inquire[1]\ \=\ args[1];\r\n\ \ \ \ }\r\n\ \ \ \ }\r\n\ \ \ \ catch\ (Exception\ e)\ {\r\n\ \ \ \ System.out.println("Exception\ occurred\ trying\ to\ read\ file");\r\n\ \ \ \ }\r\n\ \ \ \ return\ inquire;\r\n\ \ \ \ }\r\n
+numComments=2
